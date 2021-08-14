@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>registration form</title>
+    <link rel="stylesheet" href="decoration.css">
+
+
+<style>
+    body {
+        background-image: url('https://static.vecteezy.com/system/resources/thumbnails/001/340/791/small/pastel-rainbow-blurry-background-with-sparks-free-vector.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 150% 150%;
+        align: "center";
+    }
+</style>
+<script>
+    function val() {
+        var n = document.getElementById("name");
+        var e = document.getElementById("email");
+        var m = document.getElementById("mobile");
+
+        var patt_name = /(^[A-Za-z]+\s[A-Za-z]+$)/;
+        var patt_email = /^([a-z0-9\._]+)@([a-z]+).([a-z]{2,3})$/;
+        var patt_mobile = /^[7-9][0-9]{9}/;
+
+        if (n.value == "") {
+            alert("Name is not entered");
+            n.style.border = "2px solid red";
+            return false;
+        }
+        else {
+            if (e.value == "") 
+            {
+                alert("Email is not entered");
+                e.style.border = "2px solid red";
+                return false;
+            }
+            else 
+            {
+                if (m.value == "") 
+                {
+                    alert("Mobile is not entered");
+                    m.style.border = "2px solid red";
+                    return false;
+                }
+                else {
+                    if (patt_name.test(n.value)) 
+                    {
+                        if (patt_email.test(e.value)) 
+                        {
+                            if (patt_mobile.test(m.value)) 
+                            {
+                                alert("Data submitted");
+                                return true;
+                            }
+                            else {
+                                alert("Not in format");
+                                m.style.border = "2px solid red";
+                                return false;
+                            }
+                        }
+
+                        else {
+                            alert("Not in format");
+                            e.style.border = "2px solid red";
+                            return false;
+                        }
+                    }
+                    else {
+                        alert("Not in format");
+                        n.style.border = "2px solid red";
+                        return false;
+                    }
+
+                }
+
+            }
+
+
+
+
+        }
+    }
+</script>
+</head>
+<body>
+    
+
+<font size="+3">
+    <h1 style="color:black; font-family: Gabriola;  font-size: 150%; margin-bottom:0px; margin-top:0px;">
+        <center>
+            <p class="overline" style="font-family:gabriola;">Create An Account</p>
+        </center>
+    </h1>
+</font>
+<form action="/action_page.php" onsubmit="return val()" action="mailto:nilanshuhedaoo@gmail.com?subject=Userdata" method="POST" enctype="text/plain">
+    <font size="+2">
+        <div style="width: 50%; height: 100px; float: left;">
+            <p>Full Name:&nbsp;&nbsp;&nbsp;&nbsp;<input style="height:35px; width:450px;" type="text" name="fname"
+                    maxlength="50" id="name"></p>
+            Date of Birth: <input type="date">
+        </div>
+        <br>
+        <div style="margin-left: 50%; height: 100px;">
+            Set Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input placeholder="Create a Username"
+                style="height:35px; width:450px;" type="text" name="username" maxlength="8"><br>
+            <p>Set Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input
+                    placeholder="Create a Password(8 characters)" style="height:35px; width:450px;" type="password"
+                    name="password" maxlength="8"></p>
+            <p>Confirm Password: &nbsp;&nbsp;<input placeholder="Confirm Password" style="height:35px; width:450px;"
+                    type="password" maxlength="8"></p>
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the terms and conditions</label><br>
+            <p><input type="submit" style="height:35px; background-color:AquaMarine; width:150px;" name="fsubmit1"
+                    value="submit">&nbsp;&nbsp;&nbsp;
+                <input type="reset" style="height:35px; background-color:AquaMarine; width:150px;" name="freset1"
+                    value="reset">
+            </p>
+        </div>
+        Gender&nbsp;<input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="female"
+            name="gender" value="female">
+        <label for="female">Female</label><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="other"
+            name="gender" value="other">
+        <label for="other">Other</label>
+        <p>Mobile no.:&nbsp;&nbsp;&nbsp;&nbsp;<input style="height:35px; width:450px;" type="text" name="number"
+                id="mobile" maxlength="10"></p>
+        <p>Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="height:35px; width:450px;" type="text"
+                name="address" maxlength="100"></p>
+        <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                style="height:35px; width:450px;" type="text" name="email" maxlength="25" id="email"></p>
+        <p>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="height:35px; width:450px;" type="text"
+                name="password" maxlength="10" minlength="6"></p>
+    </font>
+</form>
+</body>
+</html>
